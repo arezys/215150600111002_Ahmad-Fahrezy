@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        double sisi, alas, tinggi, jari, luas;
+        
+        int pilihan = input.nextInt();
+        if(pilihan == 1){
+            //persegi
+            sisi = input.nextDouble();
+            luas = luaspersegi(sisi);
+            int i = (int)luas;
+            System.out.println(i);
+        }
+        else if(pilihan == 2){
+            //segitiga
+            alas = input.nextDouble();
+            tinggi = input.nextDouble();
+            luas = luassegitiga(alas,tinggi);
+            int i = (int)luas;
+            System.out.println(i);
+        }
+        else if(pilihan == 3){
+            //lingkaran
+            jari = input.nextDouble();
+            luas = luaslingkaran(jari);
+            System.out.println(Math.floor(luas));
+        }
+        else{
+            System.out.println("Input yang anda masukan tidak sesuai");
+        }
+    }
+    public static double luaspersegi(double s){
+        double hasil = s*s;
+        return hasil;
+    }
+    public static double luassegitiga(double a, double t){
+        double hasil = (a*t)/2;
+        return hasil;
+    }
+    public static double luaslingkaran(double r){
+        double hasil = 0;
+        if(r%7 == 0){
+            hasil = (22/7)*r*r;
+        }
+        else{
+            hasil = 3.14*r*r;
+        }
+        return hasil;
+    }
+}
