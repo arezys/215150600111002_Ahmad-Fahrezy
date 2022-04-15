@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        double saldo = input.nextDouble();
+        double setor = input.nextDouble();
+        
+        System.out.println(hitung(saldo, setor));   
+        
+    }
+    public static double hitung(double a, double b){
+        double tambah = a + b;
+        double kurang = tambah - 7000;
+        double bonus = kurang + (0.0005 * kurang);
+        
+        return bonus;
+    }
+}
