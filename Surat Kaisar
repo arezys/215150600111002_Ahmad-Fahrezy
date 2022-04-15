@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        String kata, akhir;
+        int angka;
+        
+        kata = input.nextLine();
+        angka = input.nextInt();
+        
+        akhir = geser(kata, angka);
+        
+        System.out.println(akhir);
+        
+    }
+    public static String geser(String a, int b){
+        String spasi = "";
+        char huruf;
+        
+        for(int i = 0; i < a.length(); i ++){
+            huruf = a.charAt(i);
+            
+            if(huruf >= 'A' && huruf <= 'Z'){
+                huruf = (char)(huruf + b);
+                if (huruf > 'Z'){
+                    huruf = (char)(huruf + 'A' - 'Z' - 1);
+                }
+                spasi += huruf;
+            }
+            else if (huruf >= 'a' && huruf <= 'z'){
+                huruf = (char)(huruf + b);
+                if (huruf > 'z'){
+                    huruf = (char)(huruf + 'a' - 'z' - 1);
+                }
+                spasi += huruf;
+            }
+            else{
+                spasi += huruf;
+            }
+        }
+      return spasi;
+    }
+}
