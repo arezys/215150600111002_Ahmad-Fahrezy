@@ -1,0 +1,117 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {   
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        Persegi operasi1 = new Persegi();
+        Segitiga operasi2 = new Segitiga();
+        Lingkaran operasi3 = new Lingkaran();
+        
+        int s,a,t,r;
+        
+        int pilihan = in.nextInt();
+        
+        switch(pilihan){
+            case 1:
+                //Persegi
+                s = in.nextInt();
+                operasi1.setSisi(s);
+                operasi1.infoHasilP();
+                break;
+            case 2:
+                //Segitiga
+                a = in.nextInt();
+                t = in.nextInt();
+                operasi2.setAlas(a);
+                operasi2.setTinggi(t);
+                operasi2.infoHasilS();
+                break;
+            case 3:
+                //Lingkaran
+                r = in.nextInt();
+                operasi3.setJarijari(r);
+                operasi3.infoHasilL();
+                break;
+            default:
+                System.out.println("Input yang anda masukan tidak sesuai");
+        }
+        
+    }
+}
+    
+    class Persegi{
+        private int s;
+        
+         public void setSisi(int s){
+            this.s = s;
+        }
+        public int getSisi(){
+            return s;
+        }
+        
+        public int getPersegi(){
+            int luas = s * s;
+            
+            return luas;
+        }
+        
+        public void infoHasilP(){
+            System.out.println(getPersegi());
+        }
+    }
+    
+    class Segitiga{
+        private int a, t;
+        
+        public void setTinggi(int t){
+            this.t = t;
+        }
+        public int getTinggi(){
+            return t;
+        }
+        
+        public void setAlas(int a){
+            this.a = a;
+        }
+        public int getAlas(){
+            return a;
+        }
+        public int getSegitiga(){
+            int luas = a * t / 2;
+            
+            return luas;
+        }
+        
+        public void infoHasilS(){
+            System.out.println(getSegitiga());
+        }
+    }
+    
+    class Lingkaran{
+        private int r;
+        
+        public void setJarijari(int r){
+            this.r = r;
+        }
+        public int getJarijari(){
+            return r;
+        }
+        
+        public double getLingkaran(){
+            double luas;
+            
+            if(r%7 == 0){
+                luas = (22/7)*r*r;
+            }
+            else{
+                luas = 3.14*r*r;
+            }
+            return luas;
+        }
+        
+        public void infoHasilL(){
+            System.out.println(Math.floor(getLingkaran()));
+        }
+    }
